@@ -1,0 +1,14 @@
+<<h2><%= @article.title %></h2>
+<p><%= Kramdown::Document.new(@article.content).to_html.html_safe %></p>
+
+<p>
+
+  <%= link_to edit_article_path(@article) do %>
+    <i class="fa fa-pencil"></i> Edit
+  <% end %>
+  |
+
+   <%= link_to article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+    <i class="fa fa-trash"></i> Delete
+   <% end %>
+</p>
